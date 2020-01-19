@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="./layout/adminlayout.html">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Authors</title>
+</head>
+<body>
+    <div layout:fragment="admin">
+        <div class="container">
+            <br>
+            <br>
+            <a href="#" class="btn btn-primary" th:href="@{/author}">Add New</a>
+            <br>
+            <br>
+            <div class="table-responsive">
+                <table class="table" mt-5>
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>DOB</th>
+                        <th>Email</th>
+                        <th>Street Name</th>
+                        <th>City </th>
+                        <th>Zip Code</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="au : ${authors}">
+                        <td th:text="${au.name}"></td>
+                        <td th:text="${au.dataOfBirth}"></td>
+                        <td th:text="${au.email}"></td>
+                        <td th:text="${au.address.streetName}"></td>
+                        <td th:text="${au.address.city}"></td>
+                        <td th:text="${au.address.zipCode}"></td>
+
+                    </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+</html>
+
