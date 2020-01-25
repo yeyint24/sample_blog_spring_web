@@ -1,16 +1,19 @@
 package com.example.blogsample2.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Blog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @NotEmpty(message = "Blog Tittle Cannot be null")
     private String title;
     private String category;
     @Column(columnDefinition = "TEXT")
     private String body;
+
     @ManyToOne
     private Author author;
 
